@@ -1,0 +1,85 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	html {
+		@apply scroll-smooth;
+	}
+
+	body {
+		@apply flex  min-h-screen flex-col  bg-white transition-colors duration-300 ease-in-out dark:bg-black  dark:text-white-600;
+	}
+
+	section {
+		@apply px-2 py-16;
+	}
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		@apply font-display;
+	}
+
+	h1 {
+		@apply mb-4 text-4xl lg:text-5xl;
+	}
+
+	h2 {
+		@apply mb-3 text-3xl lg:text-4xl;
+	}
+
+	h3 {
+		@apply mb-2 text-2xl lg:text-3xl;
+	}
+
+	h4 {
+		@apply mb-1 text-xl lg:text-2xl;
+	}
+
+	p {
+		@apply font-body;
+	}
+
+	a {
+		@apply text-purple  underline-offset-2 transition-colors hover:text-purple-600 hover:underline dark:text-orange dark:hover:text-orange-600;
+	}
+}
+
+@layer components {
+	.writers-heaven {
+		@apply border-orange-400 bg-gradient-to-tr from-white to-orange/5  dark:from-black;
+	}
+	.writers-heaven_shadow {
+		--o: theme('colors.orange.300/0.15');
+		--o-light: theme('colors.orange.300/0.2');
+		@apply shadow-[-10px_-10px_30px_4px_var(--o),_10px_10px_30px_4px_var(--o-light)];
+	}
+
+	.smokers-heaven {
+		@apply border-purple-400 bg-gradient-to-tr from-white to-purple/10 dark:from-black;
+	}
+
+	.smokers-heaven_shadow {
+		--p: theme('colors.purple.300/0.15');
+		--p-light: theme('colors.purple.300/0.2');
+		@apply shadow-[-10px_-10px_30px_4px_var(--p),_10px_10px_30px_4px_var(--p-light)] dark:from-black;
+	}
+
+	.heaven-gradient {
+		@apply bg-gradient-to-r  from-purple-400 from-10% via-orange-400 via-80% to-purple-400 dark:from-orange dark:via-purple dark:to-orange;
+	}
+
+	.heaven-shadow {
+		--p: theme('colors.purple.300/0.15');
+		--o-light: theme('colors.orange.300/0.2');
+		@apply shadow-[-10px_-10px_30px_4px_var(--p),_10px_10px_30px_4px_var(--o-light)];
+	}
+
+	.btn {
+		@apply rounded-md px-4 py-2 font-body font-bold text-white;
+	}
+}
