@@ -11,7 +11,7 @@
 					<a href="/impressum">Impressum</a>
 				</li>
 				<li>
-					<a href="/datenschutz">Datenschutz</a>
+					<a href="/datenschutzerklaerung">Datenschutz</a>
 				</li>
 			</ul>
 		</nav>
