@@ -72,15 +72,17 @@
 	</div>
 </div>
 
-<style>
+<style lang="postcss">
 	.overlay {
+		--light: theme('colors.white.DEFAULT');
+		--dark: theme('colors.black.DEFAULT');
 		background-image: linear-gradient(
 			to right,
-			rgba(255, 255, 255, 1) 0%,
+			var(--light) 0%,
 			rgba(255, 255, 255, 0) 10%,
 			rgba(255, 255, 255, 0),
 			rgba(255, 255, 255, 0) 90%,
-			rgba(255, 255, 255, 1) 100%
+			var(--light) 100%
 		);
 	}
 </style>
