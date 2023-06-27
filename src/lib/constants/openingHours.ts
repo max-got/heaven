@@ -48,7 +48,6 @@ export function currentlyOpen() {
 	}
 
 	const { opening, closing } = openingHours;
-	console.log(hour, opening, minute);
 
 	//opening === 0 && closing === 0 is Sonntag
 	if (opening === 0 && closing === 0) {

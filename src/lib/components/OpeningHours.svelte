@@ -9,7 +9,7 @@
 	let opening_hours_wrapper: HTMLDivElement;
 	let wrapper: HTMLDivElement;
 
-	$: is_open = false;
+	let is_open = false;
 	let mounted = false;
 	is_open = currentlyOpen();
 
@@ -54,7 +54,9 @@
 				class="mx-auto grid bg-primary text-primary-content md:grid-cols-2"
 			>
 				{#each Object.entries(OPENING_HOURS) as [day, hours]}
-					<div class="stat text-center opacity-0 md:last-of-type:col-span-2 md:last-of-type:text-center">
+					<div
+						class="stat text-center opacity-0 md:last-of-type:col-span-2 md:last-of-type:text-center"
+					>
 						<div class="mb-1 font-display">{day}</div>
 						<div class="text-2xl font-bold">
 							{#if hours.opening === hours.closing}
