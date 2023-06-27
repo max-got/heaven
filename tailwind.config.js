@@ -22,7 +22,8 @@ export default {
 				'pulse-slow': 'pulse 4s infinite cubic-bezier(0.4, 0, 0.6, 1)',
 				'text-gradient': 'text-gradient 3s linear infinite',
 				'background-shine': 'background-shine 4s linear infinite',
-				marquee: 'marquee 50s linear infinite'
+				marquee: 'marquee 50s linear infinite',
+				'border-width': 'border-width 4s alternate infinite'
 			},
 			keyframes: {
 				'text-gradient': {
@@ -44,6 +45,14 @@ export default {
 					},
 					to: {
 						transform: 'translateX(calc(-100% - 2.5rem))'
+					}
+				},
+				'border-width': {
+					from: {
+						width: '10px'
+					},
+					to: {
+						width: '100px'
 					}
 				}
 			}
