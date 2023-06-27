@@ -7,7 +7,7 @@
 	import writers_heaven_logo from '$assets/logo/logo-writers-heaven.png?w=300&imagetools';
 	import FAQ from '$lib/components/FAQ.svelte';
 	import OpeningHours from '$lib/components/OpeningHours.svelte';
-	import Map from '$lib/components/Map.svelte';
+	import Contact from '$lib/components/Contact.svelte';
 	import Gallery from '$lib/components/Gallery.svelte';
 </script>
 
@@ -50,7 +50,7 @@ Willkommen auf der Homepage von Writers Heaven und Smokers Heaven! Entdecke unse
 
 <section class="border-b border-black py-24 dark:border-orange">
 	<Gallery gallery={'writers'} />
-	<div class="container grid max-w-4xl gap-4 md:grid-cols-2">
+	<div class="container grid max-w-4xl gap-12 md:grid-cols-2">
 		<Card color={'orange'} class=" overflow-hidden">
 			<span slot="header" class="relative contents">
 				<h3 class="text-lg">Writers Heaven</h3>
@@ -60,7 +60,9 @@ Willkommen auf der Homepage von Writers Heaven und Smokers Heaven! Entdecke unse
 					rel="noopener noreferrer"
 					class="group"
 				>
-					<Instagram class="h-7 w-7 fill-orange  transition-all hover:scale-95 hover:fill-orange-300" />
+					<Instagram
+						class="h-7 w-7 fill-orange  transition-all hover:scale-95 hover:fill-orange-300"
+					/>
 				</a>
 			</span>
 
@@ -71,7 +73,12 @@ Willkommen auf der Homepage von Writers Heaven und Smokers Heaven! Entdecke unse
 				<span class="text-sm">und vieles mehr...</span>
 			</p>
 			<div class="absolute inset-0 -z-10 opacity-25 mix-blend-luminosity">
-				<img src={writers_heaven_logo} alt="Writers Heaven Logo" class="h-auto w-full" loading="lazy" />
+				<img
+					src={writers_heaven_logo}
+					alt="Writers Heaven Logo"
+					class="mx-auto h-auto w-3/4 lg:w-full"
+					loading="lazy"
+				/>
 			</div>
 		</Card>
 		<Card color={'purple'} class="overflow-hidden">
@@ -83,7 +90,9 @@ Willkommen auf der Homepage von Writers Heaven und Smokers Heaven! Entdecke unse
 					rel="noopener noreferrer"
 					class="group"
 				>
-					<Instagram class="h-7 w-7 fill-purple  transition-all hover:scale-95 hover:fill-purple-300" />
+					<Instagram
+						class="h-7 w-7 fill-purple  transition-all hover:scale-95 hover:fill-purple-300"
+					/>
 				</a>
 			</span>
 			<p class="font-display text-lg leading-[3rem] text-black dark:text-black-200">
@@ -92,10 +101,13 @@ Willkommen auf der Homepage von Writers Heaven und Smokers Heaven! Entdecke unse
 				CBD Blüten, Öle & Liquids<br />
 				<span class="text-sm">und vieles mehr...</span>
 			</p>
-			<div
-				class="absolute inset-0 -z-10 -translate-y-8 opacity-25 mix-blend-luminosity transition-all"
-			>
-				<img src={smokers_heaven_logo} alt="" class="h-auto w-full" loading="lazy" />
+			<div class="absolute inset-0 -z-10 opacity-25 mix-blend-luminosity">
+				<img
+					src={smokers_heaven_logo}
+					alt=""
+					class="mx-auto h-auto w-3/4 lg:w-full"
+					loading="lazy"
+				/>
 			</div>
 		</Card>
 	</div>
@@ -110,7 +122,7 @@ Willkommen auf der Homepage von Writers Heaven und Smokers Heaven! Entdecke unse
 
 <section>
 	<div class="container">
-		<h2 class="mx-auto mb-6 text-center">Karte</h2>
-		<Map />
+		<h2 class="mx-auto mb-6 text-center">Besuche uns!</h2>
+		<Contact />
 	</div>
 </section>

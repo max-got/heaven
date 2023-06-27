@@ -1,4 +1,7 @@
 <script lang="ts">
+	import { stagger, inView, timeline, type TimelineDefinition } from 'motion';
+	import { onMount } from 'svelte';
+
 	export let gallery: 'writers' | 'smokers' = 'writers';
 
 	import gallery_1_writers from '$assets/writers_heaven/gallery_1.jpg?h=400&fit=contain&imagetools';
@@ -30,23 +33,56 @@
 	];
 
 	const images = gallery === 'writers' ? images_writers : images_smokers;
+
+	let image_wrapper_1: HTMLDivElement;
+	let image_wrapper_2: HTMLDivElement;
+
+	onMount(() => {
+		const sequence = [
+			[
+				Array.from(image_wrapper_1.children),
+				{ opacity: 1 },
+				{ delay: stagger(0.3, { from: 'center' }), easing: 'ease-in' }
+			],
+			[
+				Array.from(image_wrapper_2.children),
+				{ opacity: 1 },
+				{ delay: stagger(0.3, { from: 'center' }), easing: 'ease-in' }
+			]
+		] as TimelineDefinition;
+
+		inView(
+			image_wrapper_1,
+			() => {
+				timeline(sequence);
+			},
+			{ margin: '0px 0px -100px 0px' }
+		);
+	});
 </script>
 
-<div class="relative mx-auto flex max-w-7xl flex-col justify-center overflow-hidden py-2 lg:py-9">
+<div
+	class="group relative mx-auto my-4 flex max-w-7xl flex-col justify-center overflow-hidden py-2 lg:py-9"
+>
 	<div
-		class="overlay absolute -inset-y-10 z-10 mx-auto w-full
-		to-100%"
+		class="overlay absolute -inset-y-10
+		z-10
+		mx-auto
+		w-full select-none
+		bg-[linear-gradient(to_right,theme(colors.white.DEFAULT)_0%,transparent_10%,transparent,transparent_90%,theme(colors.white.DEFAULT)_100%)] to-100%
+		dark:bg-[linear-gradient(to_right,theme(colors.black.DEFAULT)_0%,transparent_10%,transparent,transparent_90%,theme(colors.black.DEFAULT)_100%)]"
 	/>
-	<div class="pointer-events-none relative flex gap-10 overflow-hidden">
+	<div class="relative flex gap-10 overflow-hidden">
 		<div
-			class="flex min-w-full shrink-0 animate-marquee items-center justify-around gap-10 {gallery ===
-			'smokers'
-				? '[animation-direction:reverse]'
-				: ''}"
+			class="flex min-w-full shrink-0 animate-marquee items-center justify-around gap-10
+			group-hover:[animation-play-state:paused]
+			{gallery === 'smokers' ? '[animation-direction:reverse]' : ''}"
+			bind:this={image_wrapper_1}
 		>
-			{#each images as image}
+			{#each images as image, i}
 				<img
-					class="aspect-square max-w-[clamp(10rem,28vmin,20rem)] rounded-md object-cover shadow-md"
+					class="z-20 max-w-[clamp(15rem,28vmin,20rem)] rounded-md object-cover opacity-0 shadow-md
+					{i % 2 === 0 ? 'aspect-square' : 'aspect-video'}"
 					src={image}
 					alt=""
 					loading="lazy"
@@ -55,14 +91,17 @@
 		</div>
 		<div
 			aria-hidden="true"
-			class="flex min-w-full shrink-0 animate-marquee items-center justify-around gap-10 {gallery ===
+			class="flex min-w-full shrink-0 animate-marquee items-center justify-around gap-10 group-hover:[animation-play-state:paused] {gallery ===
 			'smokers'
 				? '[animation-direction:reverse]'
 				: ''}"
+			bind:this={image_wrapper_2}
 		>
-			{#each images as image}
+			{#each images as image, i}
 				<img
-					class="aspect-square max-w-[clamp(10rem,28vmin,20rem)] rounded-md object-cover shadow-md"
+					class="max-w-[clamp(15rem,28vmin,20rem)] rounded-md object-cover opacity-0 shadow-md
+					{i % 2 === 0 ? 'aspect-square' : 'aspect-video'}
+					"
 					src={image}
 					alt=""
 					loading="lazy"
@@ -71,18 +110,3 @@
 		</div>
 	</div>
 </div>
-
-<style lang="postcss">
-	.overlay {
-		--light: theme('colors.white.DEFAULT');
-		--dark: theme('colors.black.DEFAULT');
-		background-image: linear-gradient(
-			to right,
-			var(--light) 0%,
-			rgba(255, 255, 255, 0) 10%,
-			rgba(255, 255, 255, 0),
-			rgba(255, 255, 255, 0) 90%,
-			var(--light) 100%
-		);
-	}
-</style>
