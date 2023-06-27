@@ -9,16 +9,34 @@
 	import OpeningHours from '$lib/components/OpeningHours.svelte';
 	import Contact from '$lib/components/Contact.svelte';
 	import Gallery from '$lib/components/Gallery.svelte';
+
+	const title = 'Writers Heaven & Smokers Heaven | Grafitti, Streetart & Raucherzubehör in Potsdam';
+	const content = `Willkommen auf der Homepage von Writers Heaven und Smokers Heaven! Entdecke unsere einzigartigen Läden im Sperlingshof, einem Hinterhof in der Brandenburger Straße in Potsdam. Writers Heaven bietet eine breite Auswahl an Grafitti & Streetart Zubehör, Dosen, Marker, Sketchbooks und Stickern. Smokers Heaven hingegen ist dein Paradies für Raucherzubehör, Shishas, Shisha Tabak, E-Zigaretten, Liquids und CBD-Produkte. Besuche uns vor Ort, um in die Welt der Kreativität und des Rauchens einzutauchen. Wir bieten eine vielfältige Produktpalette an. Erfahre mehr über unsere Produkte und Angebote!`;
 </script>
 
 <svelte:head>
-	<title>Writers Heaven & Smokers Heaven | Grafitti, Streetart & Raucherzubehör in Potsdam</title>
+	<title>{title}</title>
+	<meta name="description" {content} />
 	<meta
-		name="description"
-		content="
-Willkommen auf der Homepage von Writers Heaven und Smokers Heaven! Entdecke unsere einzigartigen Läden im Sperlingshof, einem Hinterhof in der Brandenburger Straße in Potsdam. Writers Heaven bietet eine breite Auswahl an Grafitti & Streetart Zubehör, Dosen, Marker, Sketchbooks und Stickern. Smokers Heaven hingegen ist dein Paradies für Raucherzubehör, Shishas, Shisha Tabak, E-Zigaretten, Liquids und CBD-Produkte. Besuche uns vor Ort, um in die Welt der Kreativität und des Rauchens einzutauchen. Wir bieten eine vielfältige Produktpalette an. Erfahre mehr über unsere Produkte und Angebote!
-	"
+		name="keywords"
+		content="Writers Heaven, Smokers Heaven, Potsdam, Brandenburger Straße, Sperlingshof, Grafitti, Streetart, Raucherzubehör, Shishas, Shisha Tabak, E-Zigaretten, Liquids, CBD, CBD-Produkte, Dosen, Marker, Sketchbooks, Sticker, Kreativität, Rauchen, Produkte, Angebote"
 	/>
+
+	<meta property="og:image" content="./og-image.jpg" />
+	<meta property="og:type" content="website" />
+
+	<!-- Twitter -->
+	<meta property="twitter:title" content={title} />
+	<meta property="twitter:description" {content} />
+	<meta property="twitter:image" content="https://writers-potsdam.de/og-image.png" />
+	<meta property="twitter:url" content="https://writers-potsdam.de/" />
+	<meta property="twitter:card" content="summary_large_image" />
+
+	<!-- Facebook -->
+	<meta property="og:title" content={title} />
+	<meta property="og:description" {content} />
+	<meta property="og:url" content="https://writers-potsdam.de/og-image.png" />
+	<meta property="og:type" content="website" />
 </svelte:head>
 
 <section class="border-b border-t border-black py-2 dark:border-orange">
