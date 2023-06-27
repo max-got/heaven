@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { scrollFadeIn } from '$utils/actions/scrollFadeIn';
+
 	export let color: 'purple' | 'orange' = 'orange';
 	export { classes as class };
 	let classes = '';
@@ -40,9 +42,10 @@
 	on:mousemove={handleMouseMove}
 	on:mouseenter={handleMouseEnter}
 	on:mouseleave={handleMouseLeave}
+	use:scrollFadeIn={{ out_animation: true }}
 	role="button"
 	tabindex="-1"
-	class="transition-transform duration-500 hover:-translate-y-1 {classes}"
+	class="cursor-default transition-transform duration-500 hover:-translate-y-1 {classes}"
 >
 	<div class="relative flex flex-col gap-4 rounded-md border px-4 pb-4 pt-2 {div_classes}">
 		<div
