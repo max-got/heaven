@@ -31,7 +31,6 @@
 	</script>
 </svelte:head>
 
-{theme}
 <button
 	on:click={toggle_theme}
 	class="relative flex h-8 w-16 rounded-md border border-purple-600 bg-white bg-gradient-to-r from-white-400 to-purple-400/20 px-2
