@@ -30,7 +30,10 @@
 			class="collapse-arrow collapse my-2 rounded-md border border-orange/30 bg-white bg-gradient-to-r from-white-400 to-purple-400/20 bg-[200%_auto] hover:bg-[150%_auto] dark:border-purple-800 dark:bg-black dark:from-black dark:to-purple/20 dark:hover:bg-[150%_auto]"
 			style="opacity: 0;"
 		>
-			<input type="radio" name="faq" checked={i === 0} id={`faq-${i}`} />
+			<label for="faq-{i}" class="sr-only">
+				{item.question}
+			</label>
+			<input type="radio" name="faq" checked={i === 0} id="faq-{i}" aria-labelledby="faq-{i}" />
 			<div class="collapse-title font-display text-xl">{item.question}</div>
 			<div class="collapse-content text-lg dark:text-black-200">
 				{#if 'answer' in item}
