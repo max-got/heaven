@@ -22,7 +22,7 @@
 		content="Writers Heaven, Smokers Heaven, Potsdam, Brandenburger Straße, Sperlingshof, Grafitti, Streetart, Raucherzubehör, Shishas, Shisha Tabak, E-Zigaretten, Liquids, CBD, CBD-Produkte, Dosen, Marker, Sketchbooks, Sticker, Kreativität, Rauchen, Produkte, Angebote"
 	/>
 
-	<meta property="og:image" content="/og-image.jpg" />
+	<meta property="og:image" content="/og-image.png" />
 	<meta property="og:type" content="website" />
 
 	<!-- Twitter -->
