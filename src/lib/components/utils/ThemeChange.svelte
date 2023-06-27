@@ -1,53 +1,49 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 
-	let dark_mode = false;
+	let theme: 'light' | 'dark' = 'dark';
 
-	function toggleTheme() {
-		dark_mode = !dark_mode;
-		localStorage.setItem('writers:theme', JSON.stringify({ current: dark_mode ? 'dark' : 'light' }));
+	const toggle_theme = () => {
+		const new_theme = theme === 'dark' ? 'light' : 'dark';
+		theme = new_theme;
 		document.documentElement.classList.remove('light', 'dark');
-		document.documentElement.classList.add(dark_mode ? 'dark' : 'light');
-	}
+		document.documentElement.classList.add(theme);
+		localStorage.setItem('heaven:theme', JSON.stringify({ current: new_theme }));
+	};
 
 	onMount(() => {
-		dark_mode = JSON.parse(localStorage.getItem('writers:theme') as string)?.current === 'dark';
+		localStorage.setItem('heaven:theme', JSON.stringify({ current: theme }));
 	});
 </script>
 
 <svelte:head>
 	<script>
-		const themeValue = JSON.parse(localStorage.getItem('writers:theme'))?.current;
-		console.log('themeValue', themeValue);
-		const systemPreferredTheme = window.matchMedia('(prefers-color-scheme: dark)').matches
-			? 'dark'
-			: 'light';
+		if (typeof localStorage !== 'undefined' && localStorage.getItem('heaven:theme')) {
+			theme = JSON.parse(localStorage.getItem('heaven:theme'))?.current;
+		} else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+			theme = 'dark';
+		} else {
+			theme = 'light';
+		}
 
 		document.documentElement.classList.remove('light', 'dark');
-		document.documentElement.classList.add(themeValue || systemPreferredTheme);
+		document.documentElement.classList.add(theme);
 	</script>
 </svelte:head>
 
-<!-- <button class="btn-primary btn bg-orange-600">
-	{#if dark_mode}
-		Light Mode
-	{:else}
-		Dark Mode
-	{/if}
-</button> -->
-
+{theme}
 <button
-	on:click={toggleTheme}
+	on:click={toggle_theme}
 	class="relative flex h-8 w-16 rounded-md border border-purple-600 bg-white bg-gradient-to-r from-white-400 to-purple-400/20 px-2
     transition-colors duration-100 dark:border-orange-800 dark:bg-black dark:from-orange/20 dark:to-black
     "
 >
 	<span
 		class="absolute inset-x-1 flex h-full items-center transition-all
-    {dark_mode ? 'translate-x-[30px]' : 'translate-x-0'}
+    {theme === 'dark' ? 'translate-x-[30px]' : 'translate-x-0'}
     "
 	>
-		{#if dark_mode}
+		{#if theme === 'dark'}
 			<span class="rounded-full bg-purple-300 fill-black p-[3px] transition-transform [&_svg]:w-4">
 				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
 					><path
@@ -56,7 +52,9 @@
 				>
 			</span>
 		{:else}
-			<span class="rounded-full bg-orange-400 stroke-black p-[3px] transition-transform [&_svg]:w-4">
+			<span
+				class="rounded-full bg-orange-400 stroke-black p-[3px] transition-transform [&_svg]:w-4"
+			>
 				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
 					><g fill="none" stroke-width="1.5"
 						><circle cx="12" cy="12" r="6" /><path
