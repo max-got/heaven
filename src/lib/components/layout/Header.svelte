@@ -11,10 +11,10 @@
 	<div class="container flex">
 		<a href="/" class="group mx-auto">
 			<picture>
-				<source srcset="${avif}" type="image/avif" />
-				<source srcset="${webp}" type="image/webp" />
+				<source srcset={avif} type="image/avif" />
+				<source srcset={webp} type="image/webp" />
 				<img
-					src="${fallback}"
+					src={fallback}
 					alt="logo"
 					class="w-44 transition-all group-hover:scale-[0.98] group-hover:drop-shadow-lg"
 					loading="eager"
