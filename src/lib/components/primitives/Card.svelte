@@ -5,11 +5,6 @@
 	export { classes as class };
 	let classes = '';
 
-	let div_classes =
-		color === 'orange'
-			? 'writers-heaven writers-heaven_shadow'
-			: 'smokers-heaven smokers-heaven_shadow';
-
 	let div: HTMLDivElement;
 
 	let position = { x: 0, y: 0 };
@@ -37,7 +32,6 @@
 </script>
 
 <div
-	id="card"
 	bind:this={div}
 	on:mousemove={handleMouseMove}
 	on:mouseenter={handleMouseEnter}
@@ -45,9 +39,15 @@
 	use:scrollFadeIn={{ out_animation: true }}
 	role="button"
 	tabindex="-1"
-	class="cursor-default transition-transform duration-500 hover:-translate-y-1 {classes}"
+	class="cursor-default transition-transform duration-500 hover:-translate-y-1 {classes}
+	{color === 'orange' ? 'writers-heaven_shadow' : 'smokers-heaven_shadow'}
+	"
 >
-	<div class="relative flex flex-col gap-4 rounded-md border px-4 pb-4 pt-2 {div_classes}">
+	<div
+		class="relative flex flex-col gap-4 rounded-md border px-4 pb-4 pt-2
+	{color === 'orange' ? 'writers-heaven' : 'smokers-heaven'}
+	"
+	>
 		<div
 			class="inline-flex animate-text-gradient justify-between bg-gradient-to-r bg-[200%_auto] bg-clip-text text-base text-transparent md:text-lg lg:text-xl
             {color === 'orange'
@@ -70,12 +70,3 @@
 		/>
 	</div>
 </div>
-
-<style lang="postcss">
-	#card {
-		--p: theme('colors.purple.300/0.15');
-		--p-light: theme('colors.purple.300/0.2');
-		--o: theme('colors.orange.300/0.15');
-		--o-light: theme('colors.orange.300/0.2');
-	}
-</style>
