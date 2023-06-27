@@ -34,8 +34,8 @@
 <button
 	on:click={toggle_theme}
 	class="relative flex h-8 w-16 rounded-md border border-purple-600 bg-white bg-gradient-to-r from-white-400 to-purple-400/20 px-2
-    transition-colors duration-100 dark:border-orange-800 dark:bg-black dark:from-orange/20 dark:to-black
-    "
+    transition-colors duration-100 dark:border-orange-800 dark:bg-black dark:from-orange/20 dark:to-black"
+	aria-label={theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'}
 >
 	<span
 		class="absolute inset-x-1 flex h-full items-center transition-all

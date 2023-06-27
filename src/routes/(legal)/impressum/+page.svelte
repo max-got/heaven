@@ -1,3 +1,8 @@
+<svelte:head>
+	<title>Impressum</title>
+	<meta name="description" content="Impressum" />
+</svelte:head>
+
 <h1>Impressum</h1>
 <h2>Angaben gemäß § 5 TMG</h2>
 <p>Patrick Kuhl <br />Brandenburger Straße, 4 <br />14467 Potsdam</p>

@@ -59,6 +59,7 @@ Willkommen auf der Homepage von Writers Heaven und Smokers Heaven! Entdecke unse
 					target="_blank"
 					rel="noopener noreferrer"
 					class="group"
+					aria-label="Writers Heaven auf Instagram"
 				>
 					<Instagram
 						class="h-7 w-7 fill-orange  transition-all hover:scale-95 hover:fill-orange-300"
@@ -78,6 +79,8 @@ Willkommen auf der Homepage von Writers Heaven und Smokers Heaven! Entdecke unse
 					alt="Writers Heaven Logo"
 					class="mx-auto h-auto w-3/4 lg:w-full"
 					loading="lazy"
+					width="300"
+					height="300"
 				/>
 			</div>
 		</Card>
@@ -89,6 +92,7 @@ Willkommen auf der Homepage von Writers Heaven und Smokers Heaven! Entdecke unse
 					target="_blank"
 					rel="noopener noreferrer"
 					class="group"
+					aria-label="Smokers Heaven auf Instagram"
 				>
 					<Instagram
 						class="h-7 w-7 fill-purple  transition-all hover:scale-95 hover:fill-purple-300"
@@ -107,6 +111,8 @@ Willkommen auf der Homepage von Writers Heaven und Smokers Heaven! Entdecke unse
 					alt=""
 					class="mx-auto h-auto w-3/4 lg:w-full"
 					loading="lazy"
+					width="300"
+					height="300"
 				/>
 			</div>
 		</Card>

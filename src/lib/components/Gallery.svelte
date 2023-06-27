@@ -86,6 +86,8 @@
 					src={image}
 					alt=""
 					loading="lazy"
+					width="400"
+					height="400"
 				/>
 			{/each}
 		</div>
@@ -105,6 +107,8 @@
 					src={image}
 					alt=""
 					loading="lazy"
+					width="400"
+					height="400"
 				/>
 			{/each}
 		</div>
